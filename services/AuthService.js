@@ -2,11 +2,11 @@ import User from '../models/User.js';
 
 const login =  async (email, password) => {
   try {
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ where: { email }});
     if (!user || !user.authenticate(password)) {
       return null;
     }
-    return user; 
+    return user.toJSON();
   } catch (error) {
     throw error;
   }

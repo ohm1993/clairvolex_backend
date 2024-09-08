@@ -43,7 +43,18 @@ const User = sequelize.define('User', {
         msg: 'The password must contain at least 6 characters.'
       }
     }
-  }
+  },
+  role: {
+    type: DataTypes.ENUM('admin', 'user'),
+    allowNull: false,
+    defaultValue: 'user',
+    validate: {
+      isIn: {
+        args: [['admin', 'user']],
+        msg: 'Role must be either admin or user.',
+      },
+    },
+  },
 },
 {
   hooks: {
