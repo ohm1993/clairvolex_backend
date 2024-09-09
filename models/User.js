@@ -57,6 +57,8 @@ const User = sequelize.define('User', {
   },
 },
 {
+  tableName: 'users',
+  freezeTableName: true,
   hooks: {
     async beforeCreate(user) {
       if (user.password) {

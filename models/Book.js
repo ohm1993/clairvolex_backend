@@ -42,6 +42,11 @@ const Book = sequelize.define('Book', {
       }
     }
   }
-});
+},
+{
+  tableName: 'books', 
+  freezeTableName: true,
+}
+);
 
 export default Book;
